@@ -1,0 +1,69 @@
+---
+title: "RLV Ownership Functions"
+---
+
+<Note>
+Owners and Masters can access their submenu via the following commands:
+**Command:** `/#### relay` (Replace `####` with the last four digits of your unit's serial number)
+</Note>
+
+This page details the RLV functions available in the system concerning Ownership. It covers the different tiers of access and how to manage these settings.
+
+### Access Tiers
+
+| Tier | Description |
+| :--- | :--- |
+| **Master** | **Control Level: Highest.** Unit requires assistance for most actions and has no system access unless using a safeword command to relinquish control. |
+| **Owner** | **Control Level: Full.** Complete access to unit functions and settings, but the unit retains self-control. |
+| **Power** | **Control Level: Moderate.** Access to specific areas once confirmed, and the unit retains self-control. |
+| **Basic** | **Control Level: Limited.** Prompts the unit for permission each time someone accesses a menu, and the unit retains self-control. (View only mode with constant prompts). |
+
+### RLV Functions for Owner and Master Access Tiers
+
+**Owner Access:**
+- **Force Teleport:** Teleport the unit to your location from anywhere, overriding their control.
+- **Force Sit/Unsit:** Make the unit sit on or stand from objects without their consent.
+- **Forced Animations:** With some controllers, you can make the unit perform specific animations. The unit cannot stop these animations unless the controlling user ends them.
+
+**Master Access:**
+- Full Control: Includes all Owner access functions plus additional restrictions.
+- No Self-Control: The unit cannot regain control without assistance, unless using a safeword command.
+
+### Relinquishing Control and Safe-Word Commands
+
+**Relinquishing Control:**
+If the unit needs to regain control from their Master, they can use the following commands:
+- **Command:** `!go-rogue`
+- **Alternative:** `/#### go-rogue` (Replace `####` with the last four digits of your serial number)
+
+### Using the RLV Safe-Word
+In case the unit gets stuck on RLV furniture or devices, they can use a safe-word to regain control. The default safe-word is **"RED"**, but it can be changed. 
+
+- **Command:** `!relay RED`
+- **Alternative:** `/#### relay RED` (Replace `####` with the last four digits of your serial number)
+
+### Changing the Safe-Word
+To set a new safe-word, navigate through the menu structure:
+**Path:** `Menu` > `Manage` > `RLV` > `Safeword`
+
+---
+
+## KOR Permission System
+
+When another user clicks on the back of any of the KOR Controllers, the unit will be prompted with an access dialog.
+
+<Frame caption="Access Dialog">
+  <img src="https://1208832505-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fi58Wj4FiOJiC9r7yDN14%2Fuploads%2FLVp0u7t47YqLz0P4fP7X%2Fimage.png?alt=media&token=8e9f5e5a-2e1a-4f1a-8e5a-2e1a4f1a8e5a" />
+</Frame>
+
+### Access Types
+
+Below is a chart of how the permission system is structured:
+
+| Access Type | What it does |
+| :--- | :--- |
+| **One Time** | One-time access allows step-by-step menu navigation, requiring permissions for each menu accessed. |
+| **15 Minute** | Grants the user 15 minutes of basic access. |
+| **Permanent** | Provides permanent access without prompting the unit. |
+| **Blacklist** | Prevents a user from ever accessing the controller. |
+| **Whitelist** | Allows a user to always access the controller. |

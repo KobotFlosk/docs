@@ -1,88 +1,116 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "KOR - Synthetic RLV Controllers",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
+  "navigation": [
+    {
+      "group": "OVERVIEW",
+      "pages": [
+        "index",
+        "overview/what-is-kor",
+        "overview/our-features",
+        "overview/need-help",
+        "overview/faq"
+      ]
+    },
+    {
+      "group": "GETTING STARTED",
+      "pages": [
+        "getting-started/ready-to-begin",
+        "getting-started/command-reference",
+        "getting-started/rlv-ownership-functions",
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "group": "Menu Structure",
+          "pages": [
+            "getting-started/menu-structure",
+            "getting-started/menu-structure/subsystems",
+            {
+              "group": "Core",
+              "pages": [
+                "getting-started/menu-structure/core",
+                "getting-started/menu-structure/core/filters",
+                "getting-started/menu-structure/core/personas"
+              ]
+            },
+            "getting-started/menu-structure/follow",
+            {
+              "group": "Manage",
+              "pages": [
+                "getting-started/menu-structure/manage",
+                "getting-started/menu-structure/manage/colors",
+                "getting-started/menu-structure/manage/users",
+                "getting-started/menu-structure/manage/rlv-relay",
+                "getting-started/menu-structure/manage/designation"
+              ]
+            }
+          ]
         }
       ]
+    },
+    {
+      "group": "GENERAL INFORMATION",
+      "pages": [
+        "general-information/updating-the-system",
+        "general-information/profiles-cold-swapping",
+        {
+          "group": "KOR HUD",
+          "pages": [
+            "general-information/kor-hud",
+            "general-information/kor-hud/user-interface"
+          ]
+        },
+        "general-information/model-numbers-serials"
+      ]
+    },
+    {
+      "group": "SECONDARY SYSTEMS (OPTIONAL)",
+      "pages": [
+        "secondary-systems-optional/kor-display-case",
+        "secondary-systems-optional/kor-capacitive-charger",
+        "secondary-systems-optional/kor-overhead",
+        "secondary-systems-optional/hero-combat-system",
+        "secondary-systems-optional/arousal-system",
+        "secondary-systems-optional/auxiliary-power"
+      ]
+    },
+    {
+      "group": "KOR CONTROLLERS",
+      "pages": [
+        "kor-controllers/trailblazer",
+        "kor-controllers/helix",
+        "kor-controllers/prisma",
+        "kor-controllers/echo",
+        "kor-controllers/nexus-key",
+        "kor-controllers/byoc",
+        "kor-controllers/cassette-tape-module",
+        "kor-controllers/floppy-disk-module"
+      ]
+    },
+    {
+      "group": "DEVELOPMENT",
+      "pages": [
+        "development-docs/release-notes",
+        "development-docs/current-progress",
+        "development-docs/acs-protocol",
+        "development-docs/kor-api",
+        "development-docs/charging",
+        "development-docs/example-scripts"
+      ]
     }
-  },
+  ],
+  "anchors": [
+    {
+      "icon": "circle-info",
+      "name": "Welcome",
+      "url": "index"
+    }
+  ],
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"

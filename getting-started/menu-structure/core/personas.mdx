@@ -1,0 +1,29 @@
+---
+title: "Personas"
+---
+
+Creating a custom persona enhances your chat tone and quick chat lines. The controller includes pre-loaded example personas in the `K_Storage` or `K_Memory` prim, depending on your controller model. These examples can be accessed for reference and modification to help you create your own personalized persona.
+
+### Creating a Persona Notecard
+When creating or modifying a persona notecard, it's important to name it correctly. Start with `persona.` followed by a name of your choice. For example, `persona.flosk` or `persona.my persona`. This naming convention ensures that your controller recognizes and correctly processes the notecard for your custom persona settings.
+
+### Customizing Your Persona
+* **Talk**: Add elements like 'Talk' for chat tones (sound cues). Insert the UUID of your chosen sound. 
+  * Example: `talk | UUID`
+* **Quick Chat**: Personalize quick chat commands. 
+  * Example: `.command | response`. This allows a typed command like `.ok` to produce a predefined chat response.
+  * Example: `.timber | Help I've fallen and can't get up!`
+
+### Uploading to the Controller
+1. Access the controller’s edit menu and select **Edit**.
+2. Check **Edit Linked** and navigate to the memory component, now labeled `K_Storage` (or `K_Memory` in Trailblazer controllers).
+3. In the **Content** tab, add your persona notecard.
+4. Activate the controller interface and navigate to the **Personas** section to select your custom persona.
+
+### Loading Custom Personas
+To load the persona notecard you created, follow these steps in the menu:
+1. Go to the **Core** section in your controller's menu.
+2. Navigate to **Personas**.
+3. Select the name of the notecard you created (e.g., `persona.flosk` would be shown as `flosk` in the dialog button).
+
+This action activates your custom persona, setting it as the new default. Remember, the name of the notecard you choose here is what determines which persona settings are loaded.

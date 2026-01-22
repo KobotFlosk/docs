@@ -1,0 +1,23 @@
+---
+title: "Example Scripts"
+---
+
+Here is an example of making a simple shutdown button.
+
+### KOR.touch.menu.lsl
+
+```lsl
+integer getLightBus(key kUuid) {
+    return 105 - (integer)("0x" + llGetSubString(kUuid, 29, 35));
+}
+
+default
+{
+    touch_start(integer iTouched)
+    {
+        key kAgent = llDetectedKey(0);
+        llMessageLinked(LINK_ROOT, getLightBus(llGetOwner()), "kor delegate " + string(kAgent) + " shutdown", NULL_KEY); //Comment this line if not linking an object to the KOR Controller
+        llWhisper(getLightBus(llGetOwner()), "kor delegate " + string(kAgent) + " authorize shutdown"); //Comment this line if linking an object to the KOR Controller
+    }
+}
+```

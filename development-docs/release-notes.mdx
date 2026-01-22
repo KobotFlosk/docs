@@ -1,0 +1,148 @@
+---
+title: "Release Notes"
+---
+
+Rolling log of all changes done on the system.
+
+### 2023/05/29
+* Updated `SystemOptics` and `SystemComms` to allow more visibility and reception of messages while in Offline
+* Updated matrix connected to include Region name
+* Updated Jolt/Teleport particles to use texture instead of default particle
+
+### 2025/04/20 - RELEASE
+**25.4.19.1 – Rubber Kingdom Controller Release**
+- **New RK1 Controller:** Released in partnership with Rubber Kingdom, this new controller model introduces modular upgrades, improved power management, and optimized particle effects handling.
+- Added the `AbstractPlasmaController`, designed to improve code reuse and simplify future controller designs.
+- Refactored media menu system to allow HUD-based media prim adjustments using the `|hud menu` command.
+- Minor updates to the ProjectArousal plugin for compatibility.
+
+**25.3.21.1 – Plugin Refactor and Setting Copy Support**
+- Standardized method declarations across devices and items, improving plugin logic consistency, especially in dialog handling and attachment behavior.
+- Adjusted thermal stat behavior and updated dependency versions.
+- Introduced setting copy support for major version upgrades, allowing users to easily transfer settings between controller generations.
+
+**25.4.19.2 – Power System Overhaul**
+- Introduced the `AbstractSpringController` to centralize power handling logic.
+- Replaced older NexusController logic with modular, reusable methods.
+- Improved item initialization via `on_item_created` in PowerSpringDevice.
+
+**25.4.20.2 – Filter & Persona Fixes**
+- Refactored dialog button filters to use `setInclude`, improving selection reliability.
+- Added error logging for better debugging support.
+- Resolved issue where persona and filter notecards were not appearing in dialog selection.
+- Updated dependency versions.
+
+### 2025/03/11 - BUG-FIXES
+- Quick deployment to fix some bad user experiences.
+- Adding fix for minor bug within ACS service during charging.
+- Removing 'Fluids' button from Manage menu.
+
+### 2025/03/07 - RELEASE
+This update introduces new API functionality to support recently released products like the new display case and chargers. 
+- Power level warnings now trigger at 25% increments for better monitoring. 
+- RLV handling has been refactored to improve action processing, such as sitting.
+- Fixed tesseract bug for users who have no teleport history.
+- Added new functions for KORI API.
+- Releasing KOR's Display Case.
+- Releasing a HEV HL themed plasma charger.
+
+### 2025/01/10 - RELEASE
+Minor QoL fixes. 
+- Personas and Filters should now function a lot better.
+- Regex has been added into the filters.
+- Fixed Personas and Filters to allow loading of larger notecards.
+- Refactored notecard handling and improved regex functionality.
+- Fixed closed button on the UI.
+
+### 2025/01/06 - BREAK-FIX
+- Pushing out an update to fix the controller erroring out after running the `!update` command. 
+- Issue occurred if user teleported before running the command, preventing the user from speaking.
+
+### 2025/01/04 - Retro Controllers & Bug Fixes
+- Bugfixes on `KOR.comms`, `KOR.devices`, `KOR.probe`, and `KOR.collide` to fix stack-heaping.
+- Two new electric-based controllers released with a retro vibe.
+- Refactored MediaModule and collision handling.
+- Introduced a comprehensive logging service.
+- Enhanced fluid management (rates, disposal, conversion).
+- Improved power management and API support.
+
+### 2024/07/27 - BUG FIXES
+- Updater for KOR now works. LSL Scripts can now be updated without needing a force redelivery.
+- `KOR.devices` has been updated to fix a bug. 
+
+<Note>
+Failure to update the controller will result in being prompted to update the system on attach, user experience could be degraded.
+</Note>
+
+### 2024/07/20 - BREAK-FIX
+- Fixed a crash issue caused by moving the UI window too fast, due to a race-condition. 
+- Modified the UI window saving process.
+- Fixed an issue with Echo and Trailblazer Holograms attempting to open prim-media.
+
+### 2024/07/15 - BREAK-FIX
+- Fixed numerous bugs from the previous release, including the logo getting stuck on screen after receiving an updated controller. 
+- Updated KOR Trailblazer and BYOC battery to utilize linkset data, and revamped the system lifecycle. 
+
+### 2024/06/30 - BUG FIXES
+- Addressing issue where KOR Logo gets stuck on screen sometimes during boot-up.
+- Fixed issue where power was no longer being consumed real-time.
+- Deprecating lamp command.
+- Fixing issue where charging did not stop.
+
+### 2024/06/28 - RELEASE
+- Revamped relay commands structure in `RlvRelayCommandDialog`.
+- Improved exception handling in `ManageMindDialog` and `NexusController`.
+- Enhanced functions in `KoriService`, `AbstractBaseSystem` and other services.
+- Added support for new features and fix minor bugs.
+
+### 2024/05/26 - RELEASE
+- All proceeds for the KOR Helix sales will go to the TeamFox Foundation until the end of Scifi-Con.
+- New Plasma Controller: **KOR Helix**.
+- PBR Plasma Charger released.
+
+### 2024/01/20 - BUG FIXES
+- Updating Echo PBR textures and colors.
+- Adding fix to filter root controller script resets.
+
+### 2024/01/19 - RELEASE
+- All LSL scripts have been refactored for performance.
+- Added **Echo Controller**.
+- Implemented Additional ProjectArousal Commands.
+- Updated Stats to Include Arousal.
+
+### 2023/12/28 - BUG FIXES
+- Updating Interferences to include type 'P'.
+- Updating ACS to filter invalid interferences.
+- Adding Plasma Power power adjustment with the **KOR Prisma**.
+- Fixing auth issue on UI Dashboard after migration to cloud.
+
+### 2023/12/16 - RELEASE
+- KOR Project migrated to Google Cloud Run.
+- `KOR.comms` and `system.main` need to be replaced in BYOC for it to continue function.
+- `KOR.comms` refactored to fix script unresponsiveness and resetting issues.
+
+### 2023/11/26 - RELEASE & BUG FIXES
+- Adding **KOR Overhead**.
+- Fixing `!jolt` not actually charging units nearby. Command should now drain 1% battery.
+
+### 2023/11/17 - RELEASE & BUG FIXES
+- Adding **Nexus Controller**.
+- Updated `FollowHelper` to provide improved following (eliminates stuttering).
+- Safewords work now. i.e `/2705 KOBOT`.
+
+### 2023/07/28 - MAJOR RELEASE
+- **HERO** (Hybridized Elite Robotic Operatives).
+- Weather is known as **ERIS** (Environmental Response and Intelligence System).
+- Adding Shield Device to mitigate damage.
+
+### 2023/01/22 - RELEASE
+- The release of our **User Interface (UI)**! It is still in BETA but usable for basic setup of your unit, or just as a dashboard.
+
+### 2022/11/24 - RELEASE
+- Added a **HUD**.
+- Added silent/verbose modes to booting.
+
+### 2022/10/27 - RELEASE
+- Wireless charging is fixed. 
+- ACS protocols updated for chargers. 
+- Added in new commands for warping.

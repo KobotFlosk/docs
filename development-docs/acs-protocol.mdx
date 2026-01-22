@@ -1,0 +1,60 @@
+---
+title: "ACS Protocol"
+---
+
+### Charger Protocol
+
+#### Probing and Connection
+
+| Channel | From | To | Meaning |
+| :--- | :--- | :--- | :--- |
+| **360** | CCU | Charger | `ACS,hello,CHARGER` - Probe for a control system. |
+| **360** | Charger | CCU | `ACS,welcome,device,information[...]` - Controller reports existence. |
+| **360** | CCU | Charger | `ACS,interface,CHARGER` - Request an interface. |
+| **360** | Charger | CCU | `ACS,interface,channel` - Provide communication channel (large random negative number). |
+| **360** | CCU | Charger | `ACS,refuse,reason` - CCU may refuse the connection. |
+
+Once connected, the charger and CCU communicate exclusively on the specified channel.
+
+### Initialization Messages
+*Sent by CCU after connection:*
+
+| Channel | Message | Meaning |
+| :--- | :--- | :--- |
+| **channel** | `ACS,powertype:EL` | Unit uses electrical power. Required for charging. |
+| **channel** | `ACS,maxcharge:maxcharge` | Unit's maximum charge capacity in ticks. |
+
+*Requested by Charger after connection:*
+
+| Channel | Message | Meaning |
+| :--- | :--- | :--- |
+| **channel** | `ACS,chargersummary:` | Request information about the unit's current charge state. |
+
+**Reply Format:** `power,chargepct,tickstofull`
+
+### Normal Charging Sequence
+
+| Channel | From | To | Meaning |
+| :--- | :--- | :--- | :--- |
+| **channel** | CCU | Charger | `ACS,charging:1` - Indicates charging started. |
+| **channel** | Charger | CCU | `ACS,chargeseconds:n` - Provides n ticks of charge. |
+| **channel** | CCU | Charger | `ACS,chargeticks:ticks` - CCU reports charge level changes. |
+| **channel** | CCU | Charger | `ACS,charging:0` - Indicates charging ended. |
+
+### Additional Messages (Sent by CCU Anytime)
+
+| Channel | Message | Meaning |
+| :--- | :--- | :--- |
+| **channel** | `ACS,dump:key,string` | Debugging info for a specific script in the charger. |
+| **channel** | `ACS,unitdisconnect:n` | Allow (n=1) or prevent (n=0) unit disconnection while charging. |
+| **channel** | `ACS,power:n` | Unit power ON (n=1) or OFF (n=0). |
+| **channel** | `ACS,stopcharge:` | Signals the charger to stop charging. |
+| **channel** | `ACS,travel:n` | Allow (n=1) or prevent (n=0) the unit from moving. |
+
+### Disconnect Sequence
+
+| Channel | From | To | Meaning |
+| :--- | :--- | :--- | :--- |
+| **channel** | CCU | Charger | `ACS,disconnect:` - Tell CCU to disconnect. |
+| **channel** | CCU | Charger | `ACS,goodbye:` - Indicates CCU is disconnecting. |
+| **360** | Charger | CCU | `ACS,goodbye:` - Sent by charger if CCU resets (losing channel info). |

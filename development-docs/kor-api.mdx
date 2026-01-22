@@ -1,0 +1,105 @@
+---
+title: "KOR API"
+---
+
+This documentation provides an outline of the specifications for the KOR API. 
+
+The API receives data through channel **-757982** and responds exclusively to the requesting object on channel **-757981** (unless specified otherwise in the request channel field). 
+
+<Note>
+Requests must be within a 15m range and utilize JSON messages for structured communication.
+</Note>
+
+### Request Fields
+
+| Field | Description |
+| :--- | :--- |
+| **id** | [Required] Last 12 characters of the target UUID. (e.g., `########-####-####-####-f60daf6b8876`) |
+| **handle** | A unique identifier for your requests (max 15 chars). Facilitates request tracking by returning the value in response(s). |
+| **size** | Limit on the amount of data to return (Min 50, Max 960). |
+| **channel** | Specifies the channel for responses (Defaults to -757981). |
+| **store** | Similar to fetch except only an array of JSON objects are accepted. The key would be the value of the segment name and the values as another JSON object representing the parameters. (i.e. `{"Segment": {"Param1": "Value1", "Param2": "Value2"}}`) |
+| **event** | Similar to store except only a single JSON object is allowed. (i.e. `{"Segment": {"Param1": "Value1", "Param2": "Value2"}}`) |
+| **fetch** | Array of segments to retrieve (e.g., `["colors", "designation"]`). |
+
+### Response Fields
+
+| Field | Description |
+| :--- | :--- |
+| **status** | 200 = Success, 206 = Partial response (spans multiple messages). |
+| **size** | Number of responses expected for the full body. |
+| **part** | The index of the current response part (starting from 1). |
+| **data** | The actual data payload. |
+
+### Examples
+
+#### Example I
+**Request on -757982:**
+```json
+{
+  "id": "f60daf6b8876",
+  "handle": "TEST",
+  "fetch": ["colors"]
+}
+```
+
+**Response on -757981:**
+```json
+{
+  "handle": "TEST",
+  "status": 200,
+  "data": "{\"colors\":{\"color\":\"<1.00000, 0.00000, 0.00000>\",\"color-2\":\"<0.56000, 0.87500, 1.00000>\",\"color-3\":\"<1.00000, 0.00000, 0.00000>\",\"color-4\":\"<1.00000, 0.00000, 0.00000>\"}}"
+}
+```
+
+#### Example II
+**Request on -757982:**
+```json
+{
+  "id": "f60daf6b8876",
+  "channel": -4242,
+  "fetch": ["designation"]
+}
+```
+
+**Response on -4242:**
+```json
+{
+  "status": 200,
+  "data": "{\"designation\":\"Flosk 'Kobot'\"}"
+}
+```
+
+#### Example III
+**Request on -757982:**
+```json
+{
+  "id": "f60daf6b8876",
+  "handle": "ME",
+  "channel": -4242,
+  "size": 50,
+  "fetch": ["colors", "designation"]
+}
+```
+
+### Scripting with KOR
+
+#### Link Messages
+KOR also interacts with local scripts in the same prim using link messages.
+
+* **Events**: KOR broadcasts events on channel `1000`.
+* **Commands**: You can send commands to KOR on channel `1001`.
+
+```lsl
+// Sending a command
+llMessageLinked(LINK_THIS, 1001, "boot", NULL_KEY);
+
+// Listening for events
+link_message(integer sender_num, integer num, string str, key id)
+{
+    if (num == 1000)
+    {
+        llOwnerSay("KOR Event: " + str);
+    }
+}
+```

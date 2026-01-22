@@ -1,0 +1,59 @@
+---
+title: "KOR Display Case"
+---
+
+<Warning>
+This is an RLV based device. RLV is not required for use, but loses a lot of functionality.
+</Warning>
+
+### How does it work?
+
+There are two different ways to interact with the display case.
+
+If you click and hold, then release after 1-2 seconds, a menu will appear showing nearby agents that can be grabbed and placed inside the case.
+
+<Note>
+Any KOR Controller must be worn for this to work.
+</Note>
+
+Clicking the case once will open the door, allowing you to sit inside. Right-clicking to sit will not work; the door must be open for sitting to be possible.
+
+---
+
+### Group Permissions
+
+To retain access to a specific group, you must set the display case to that group. Only members of the assigned group will have access to interact with the case as permitted; and basically act as an owner of the case.
+
+#### Owner Access
+* The case owner will always have access, regardless of group settings.
+* The owner has the ability to modify settings, adjust permissions, and manage case interactions.
+
+#### Forced Sitting and Restrictions
+* Only the **owner** can force another user to sit inside the case.
+* Users who are force-sat into the case **will not be able to exit** on their own.
+* This restriction is absolute unless manually released by the owner.
+
+#### Emergency Release Command
+If you become stuck inside the case and need to exit, use the command `!charger release`
+
+#### This command will:
+* Free your servos.
+* Remove any **RLV restrictions**.
+* Allow you to exit the case.
+
+This command should only be used in rare cases where manual release by the owner is not possible.
+
+---
+
+### Adding Animations
+
+<Note>
+Basic knowledge of editing objects in world is required.
+</Note>
+
+If you right-click and edit the display case, navigate to link #12, named `K_Content`. Simply drag and drop any animations you want inside the display case. Once seated and the menu is accessed, the animations you added should appear.
+
+The last animation used in the display case will always be the default for the next person who sits inside.
+
+#### Pose Adjustment
+Poses are synced through KOR's backend, meaning they will be remembered across different locations on the grid or region as long as the same poses are available.
