@@ -33,6 +33,8 @@
         "pages": [
           "getting-started/menu-structure",
           "getting-started/menu-structure/subsystems",
+          "getting-started/menu-structure/devices",
+          "getting-started/menu-structure/report",
           "getting-started/menu-structure/follow"
         ]
       },

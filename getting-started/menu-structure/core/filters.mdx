@@ -2,30 +2,43 @@
 title: "Filters"
 ---
 
-### Creating Word Replacements
-
 Word Replacements modify how your unit speaks during conversation. These filters allow certain keywords or phrases to be automatically converted into synthetic-styled language. They are useful for flavoring dialog or maintaining character tone consistently across all responses.
 
-The controller supports a set of example replacements that are read from a notecard named: `filters.WR`
+The controller supports a set of example replacements that are read from a notecard named:
 
-You can find the example notecard already loaded in your controller's `K_Storage`, `K_Memory` or `K_Kore` prim depending on your controller model. Use this as a reference to build your own.
+`filters.WR`
 
-#### Format of Word Replacements
+You can find the example notecard already loaded in your controller's `K_Storage` , `K_Memory` or `K_Kore` prim depending on your controller model. Use this as a reference to build your own.
+
+**Format of Word Replacements:**
+
 Each entry in the notecard follows this format:
-`original | replacement`
+
+```
+original | replacement
+```
 
 **Examples:**
-Be mindful that replacements are case-sensitive. If you want both “Sorry” and “sorry” to be filtered, list both.
 
-### Creating Your Own Filter Set
-To create a custom set, create a new notecard and name it: `filters.[yourname]`
+```
+its | it is
+lol | haha
+I know | This Kobot knows
+Sorry | Kobot apologies
+```
+
+Be mindful that replacements are **case-sensitive**. If you want both “Sorry” and “sorry” to be filtered, list both.
+
+**Creating Your Own Filter Set:**
+
+To create a custom set, create a new notecard and name it:
+
+`filters.[yourname]`
 
 **Example:**
-This helps keep alternate word sets separate and organized. These can be swapped by selecting the desired filter set in the controller’s interface.
 
-### Uploading to the Controller
-1. Right-click your controller object and choose **Edit**.
-2. Check **Edit Linked**, then select the `K_Storage`, `K_Memory` or `K_Kore` prim.
-3. Open the **Content** tab.
-4. Drop your custom `filters.[yourname]` notecard into the content list.
-5. Once added, open the controller’s interface, go to **Filters**, and select your replacement set.
+```
+filters.flosk
+```
+
+This helps keep alternate word sets separate and organized. These can be swapped by selecting the desired filter set in the controller’s interface.
