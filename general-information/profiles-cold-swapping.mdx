@@ -22,13 +22,13 @@ Profiles allow the user to copy an existing controller and create separate setti
 
 ### READ_ME
 
-**Command**: `!generate profile <name>`
+**Command**: <code>!generate profile &lt;name&gt;</code>
 
 **Usage**: Allows the user to name the profile. User must remember the name in case user was to lose the generated key. Without the name the user **CANNOT** get the generated key back.
 
 1. Always generate a new key, never reuse an older key.
 2. Always generate the key on the controller (or controller copy) you intend to use it with, never create a key for a different controller.
-3. Always remember the `<name>` parameter if you wish to generate a new key with the same profile in the future, else the profile is lost due to encryption.
+3. Always remember the <code>&lt;name&gt;</code> parameter if you wish to generate a new key with the same profile in the future, else the profile is lost due to encryption.
 4. Make sure your controllers are up to date. If using the BYOC make sure your scripts are the most recent ones.
 
 <Warning>
@@ -38,7 +38,7 @@ Profiles allow the user to copy an existing controller and create separate setti
 ### Instructions
 
 1. Make a copy of your controller.
-2. Run `!generate profile <name>` make sure you create a name that is easy for you to remember. It is required incase you lose your generated key.
+2. Run <code>!generate profile &lt;name&gt;</code> make sure you create a name that is easy for you to remember. It is required incase you lose your generated key.
 3. Copy the generated key and shutdown/remove your controller.
 4. Attach your controller copy but **DO NOT BOOT**. You will need to edit it and find the prim 'system.main' and place the generated key in the description of the prim.
 5. It is HIGHLY recommended to reattach the controller after updating the key, but not required.

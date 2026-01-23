@@ -1,5 +1,6 @@
 ---
 title: "Command Reference"
+icon: "book"
 ---
 
 These commands are subject to change, and more will be added as development continues.
@@ -27,26 +28,26 @@ You must pass `!` or `|` before a command for the system to recognize it. (e.g.,
 | **warp** | `!warp` | Brings up rolling teleport history. |
 | **warp head** | `!warp head` | Teleports back to the last TP spot on the current sim. |
 | **warp head\^** | `!warp head^` | Teleports to the last sim you were on (Back button). |
-| **warp head~#** | `!warp head~#` | Teleport to a specific sim index `#` in your history. |
+| **warp head~#** | <code>!warp head~#</code> | Teleport to a specific sim index `#` in your history. |
 | **unfollow** | `!unfollow` | Tells the unit to stop following a target. |
-| **qtt** | `!qtt on/off` | Enables or Disables Teleporting (Quick Teleport). |
+| **qtt** | <code>!qtt &lt;ON \| OFF&gt;</code> | Enables or Disables Teleporting (Quick Teleport). |
 
 ### Communication
 
 | Command | Usage | Description |
 | :--- | :--- | :--- |
-| **hive** | `!hive \<msg\>` | Sends a message to every KOR user across the grid. |
+| **hive** | <code>!hive &lt;MESSAGE&gt;</code> | Sends a message to every KOR user across the grid. |
 | **shout** | `!s` or `!shout` | Unit shouts in local chat. |
 | **whisper** | `!w` or `!whisper` | Unit whispers in local chat. |
-| **mood** | `!mood \<text\>` | Sets a mood (up to 40 chars). Requires overhead tag. |
-| **audio** | `!audio on/off` | Controls receiving IMs and local chat (RLV). |
+| **mood** | <code>!mood &lt;TEXT&gt;</code> | Sets a mood (up to 40 chars). Requires overhead tag. |
+| **audio** | <code>!audio &lt;ON \| OFF&gt;</code> | Controls receiving IMs and local chat (RLV). |
 | **releasechat**| `!releasechat` | Stops Chat Redirect (talking through an object). |
 
 ### Customization & UI
 
 | Command | Usage | Description |
 | :--- | :--- | :--- |
-| **color** | `!color \<val\>` | Changes unit color (HEX, RGB, or Name). |
+| **color** | <code>!color &lt;HEX \| RGB \| COLOR&gt;</code> | Changes unit color (HEX, RGB, or Name). |
 | **prsxyz** | `!prsxyz` | Saves the controller's position for centering. |
 | **hide hud** | `!hide hud` | Hides the HUD. |
 | **show hud** | `!show hud` | Shows the HUD. |
@@ -59,8 +60,8 @@ You must pass `!` or `|` before a command for the system to recognize it. (e.g.,
 | Command | Usage | Description |
 | :--- | :--- | :--- |
 | **jolt** | `!jolt` | Charges nearby units (5m) for 1% battery power. |
-| **jolt \<uuid\>** | `!jolt <uuid>` | Charges a specific unit directly. |
-| **servos** | `!servos \<lv\>` | Controls servo level (`full`, `half`, `halt`). |
+| **jolt &lt;UUID&gt;** | <code>!jolt &lt;UUID&gt;</code> | Charges a specific unit directly. |
+| **servos** | <code>!servos &lt;FULL \| HALF \| HALT&gt;</code> | Controls servo level (`full`, `half`, `halt`). |
 | **charger release**| `!charger release`| Emergency release from a charger (RLV). |
 
 ### Owner/Master Commands
@@ -68,14 +69,14 @@ You must pass `!` or `|` before a command for the system to recognize it. (e.g.,
 
 | Command | Usage | Description |
 | :--- | :--- | :--- |
-| **say** | `/#### say \<txt\>` | Owner speaks through the unit. |
-| **whisp** | `/#### whisp \<txt\>`| Owner whispers through the unit. |
-| **shout** | `/#### shout \<txt\>`| Owner shouts through the unit. |
+| **say** | <code>/#### say &lt;TEXT&gt;</code> | Owner speaks through the unit. |
+| **whisp** | <code>/#### whisp &lt;TEXT&gt;</code>| Owner whispers through the unit. |
+| **shout** | <code>/#### shout &lt;TEXT&gt;</code>| Owner shouts through the unit. |
 | **relay** | `/#### relay` | Opens the RLV Relay panel for the owner. |
 | **shutdown** | `/#### shutdown` | Owner remotely shuts down the unit. |
 | **grabchat** | `/#### grabchat` | Turns on Chat Redirect. |
 | **go-rogue** | `!go-rogue` | Allows the unit to regain control from Master. |
-| **relay RED** | `!relay RED` | RLV clear restrictions/safeword. |
+| **relay RED** | <code>!relay &lt;SAFEWORD&gt;</code> | RLV clear restrictions/safeword. |
 
 ### Technical / Advanced
 
@@ -83,8 +84,8 @@ You must pass `!` or `|` before a command for the system to recognize it. (e.g.,
 | :--- | :--- | :--- |
 | **lightbus** | `!lightbus` | Send command through Private Lightbus. |
 | **lightbus pub**| `!lightbus pub` | Send command through Public Lightbus. |
-| **resize** | `!\<name\> resize`| Saves the current size of a controller. |
-| **\<special\>** | `!\<name\> \<cmd\>` | Controller-specific command (e.g., `!helix vent`). |
+| **resize** | <code>!&lt;NAME&gt; resize</code>| Saves the current size of a controller. |
+| `&lt;special&gt;` | <code>!&lt;NAME&gt; &lt;COMMAND&gt;</code> | Controller-specific command (e.g., `!helix vent`). |
 
 <Tip>
 The `!menu` command also accepts subsets like `!menu subsys`, `!menu devices`, `!menu users`, `!menu profile`, or `!menu mind` to open specific menus directly.
@@ -186,7 +187,7 @@ Current location is the [KOR main store](http://maps.secondlife.com/secondlife/S
 ---
 
 ### audio
-**Usage**: `!audio on/off`
+**Usage**: <code>!audio &lt;ON | OFF&gt;</code>
 **Description**: Turns audio on & off. This controls the RLV function of being able to receive IMs and local chat.
 
 ---
@@ -198,19 +199,19 @@ Current location is the [KOR main store](http://maps.secondlife.com/secondlife/S
 ---
 
 ### relay RED
-**Usage**: `!relay RED`
+**Usage**: <code>!relay &lt;SAFEWORD&gt;</code>
 **Description**: RLV clear restrictions/stop. (RED, i.e., your SAFEWORD, can be changed in the RLV settings in the controller.)
 
 ---
 
 ### servos
-**Usage**: `!servos full/half/halt`
+**Usage**: <code>!servos &lt;FULL | HALF | HALT&gt;</code>
 **Description**: Controls the level of the servos.
 
 ---
 
 ### qtt
-**Usage**: `!qtt on/off`
+**Usage**: <code>!qtt &lt;ON | OFF&gt;</code>
 **Description**: Enables & Disables Teleporting.
 
 ---
@@ -228,25 +229,25 @@ Current location is the [KOR main store](http://maps.secondlife.com/secondlife/S
 ---
 
 ### color
-**Usage**: `!color \<HEX | RGB | COLOR\>`
+**Usage**: <code>!color &lt;HEX | RGB | COLOR&gt;</code>
 **Description**: Changes the unit's color. You can use any of the formats: HEX, RGB, or named color. Can also use all four NS Lightbus channels, e.g., `!color a red`.
 
 ---
 
 ### say
-**Usage**: `/#### say`
+**Usage**: <code>/#### say &lt;TEXT&gt;</code>
 **Description**: Allows an owner to speak through their unit (*#### last four of serial number*).
 
 ---
 
 ### whisp
-**Usage**: `/#### whisp`
+**Usage**: <code>/#### whisp &lt;TEXT&gt;</code>
 **Description**: Allows an owner to whisper through their unit (*#### last four of serial number*).
 
 ---
 
 ### shout (Owner)
-**Usage**: `/#### shout`
+**Usage**: <code>/#### shout &lt;TEXT&gt;</code>
 **Description**: Allows an owner to shout through their unit (*#### last four of serial number*).
 
 ---
@@ -282,8 +283,8 @@ Current location is the [KOR main store](http://maps.secondlife.com/secondlife/S
 ---
 
 ### warp head~#
-**Usage**: `!warp head~#`
-**Description**: `#` indicating the number in the warp list so you can teleport to any sim in your history.
+**Usage**: <code>!warp head~#</code>
+**Description**: indicating the number in the warp list so you can teleport to any sim in your history.
 
 ---
 
@@ -293,9 +294,9 @@ Current location is the [KOR main store](http://maps.secondlife.com/secondlife/S
 
 ---
 
-### jolt \<UUID\>
-**Usage**: `!jolt <unit's UUID> <CHARGE VALUE>`
-**Description**: Charges a unit directly for no more than 1% of battery power. `<CHARGE VALUE>` is an optional value that can be used.
+### jolt &lt;UUID&gt;
+**Usage**: <code>!jolt &lt;UUID&gt; &lt;CHARGE VALUE&gt;</code>
+**Description**: Charges a unit directly for no more than 1% of battery power. <code>&lt;CHARGE VALUE&gt;</code> is an optional value that can be used.
 
 ---
 
@@ -324,7 +325,7 @@ Current location is the [KOR main store](http://maps.secondlife.com/secondlife/S
 ---
 
 ### hive
-**Usage**: `!hive \<msg\>`
+**Usage**: <code>!hive &lt;MESSAGE&gt;</code>
 **Description**: Sends a message to every user wearing the controller across the grid.
 
 ---
@@ -336,19 +337,19 @@ Current location is the [KOR main store](http://maps.secondlife.com/secondlife/S
 ---
 
 ### mood
-**Usage**: `!mood`
+**Usage**: <code>!mood &lt;TEXT&gt;</code>
 **Description**: Allows the unit to set a mood, up to 40 characters. You must add the tag to your overhead titler.
 
 ---
 
-### \<controller_name\> resize
-**Usage**: `!<controller_name> resize`
+### &lt;NAME&gt; resize
+**Usage**: <code>!&lt;NAME&gt; resize</code>
 **Description**: Allows the user to save the current size of a controller.
 
 ---
 
-### \<controller_name\> \<command\>
-**Usage**: `!<controller_name> <command>`
+### &lt;NAME&gt; &lt;COMMAND&gt;
+**Usage**: <code>!&lt;NAME&gt; &lt;COMMAND&gt;</code>
 **Description**: Allows the user to run a controller specific command. (i.e `!helix vent`)
 
 ---

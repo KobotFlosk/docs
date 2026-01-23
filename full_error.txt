@@ -1,0 +1,24 @@
+⠋ validating build...
+[2K[1A[2K[G⠙ validating build...
+[2K[1A[2K[G⠹ validating build...
+[2K[1A[2K[G🚨 Invalid docs.json:
+⠹ validating build...
+[2K[1A[2K[G#.navigation: Invalid type. Field did not match any types in union
+  1:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+  2:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+  3:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+  4:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+  5:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+  6:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+  7:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+  8:
+    #.navigation: Invalid type. Expected field to be of type 'object', received 'array'
+⠹ validating build...
+[2K[1A[2K[Gerror build validation failed

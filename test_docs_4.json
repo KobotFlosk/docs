@@ -1,0 +1,18 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "KOR - Synthetic RLV Controllers",
+  "colors": {
+    "primary": "#E20613",
+    "light": "#42506F",
+    "dark": "#DCD6DB"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "OVERVIEW",
+        "pages": ["index"]
+      }
+    ]
+  }
+}

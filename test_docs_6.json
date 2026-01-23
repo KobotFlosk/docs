@@ -1,0 +1,28 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Test",
+  "colors": {
+    "primary": "#E20613",
+    "light": "#42506F",
+    "dark": "#DCD6DB"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "L1",
+        "pages": [
+          {
+            "group": "L2",
+            "pages": [
+              {
+                "group": "L3",
+                "pages": ["index"]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
