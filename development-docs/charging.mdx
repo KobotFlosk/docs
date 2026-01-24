@@ -2,46 +2,15 @@
 title: "Charging"
 ---
 
-The KOR system utilizes the **ACS (Advanced Charging System)** protocol for power management and interaction with charging stations.
+This is an example of the ACS protocol in action for charging.
 
-### What is Efficacy?
+#### **Abbreviations**
+* **RX** is received by Unit from Charger
+* **RX-i** is received by Unit from Charger on interface channel
+* **TX** is transmit to Charger from Unit
 
-Efficacy is the effectiveness of a received charge amount relative to the charge limit, calculated as **Charge Amount / Charge Received**. For a battery, the charge limit is 1% of its capacity.
-
-Efficacy varies based on the charge received compared to the maximum possible charge, with examples demonstrating how efficacy decreases as the received charge exceeds the battery's charge limit.
-
-#### Efficacy using 1000W Battery
-Charge limit (for Battery) is 1% of Capacity (i.e. 1000W Battery, 10W is maximum that can be received).
-
-| Charge Received | Efficacy | Charge Amount |
-| :--- | :--- | :--- |
-| 10W | 100% | 10W |
-| 20W | 50% | 10W |
-| 50W | 20% | 10W |
-| 100W | 10% | 10W |
-
-### ACS Protocol Specifications
-
-Charging communication occurs over specific LSL channels using a structured message format.
-
-| Message Type | Direction | Description |
-| :--- | :--- | :--- |
-| **RX** | Received by Unit from Charger. |
-| **TX** | Transmitted to Charger from Unit. |
-
-### Charging Sequence
-
-1.  **Connect**: The unit or charger initiates contact. The response may include `'caps'` (capabilities). Ionization controllers (e.g., Helix, Echo, Prisma) will have `'ionization'` as a value.
-2.  **Interface**: Handshake and identification. An interface channel is established for private communication.
-3.  **Charge**: Active power transfer begins. The unit reports its power type (Electric or Ionization).
-4.  **Stop**: Charging process is halted.
-5.  **Stopped**: Confirmation that power transfer has ceased.
-6.  **Disconnect**: Termination of the charging session. The interface channel is released and motors are unlocked.
-
-### Protocol Example
-
-#### CONNECT:
-The connect response may have an additional parameter called 'caps' which is short for capabilities. Ionization controllers (ie. Helix, Echo, Prisma) will have 'ionization' as a value for 'caps'.
+#### **CONNECT:**
+**The connect response may have an additional parameter called 'caps' which is short for capabilities.  Ionization controllers (ie. Helix, Echo, Prisma) will have 'ionization' as a value for 'caps'.**
 
 ```text
 AcsService RX:: ACS,hello,CHARGER
@@ -82,8 +51,17 @@ AcsService TX[-343851]:: ACS,stopcharge:
 AcsService TX[-343851]:: ACS,chargeticks:129899.602000
 ```
 
-#### DISCONNECT:
-Termination of the charging session. The interface channel is released and motors are unlocked.
+#### STOPPED:
+```text
+AcsService RX-i[-343851]:: ACS,charging:0
+Charging Concluded
+```
 
-### Safety Features
-The system includes automatic disconnects and power on/off signals to ensure safety. Units will automatically unlock motors upon a successful `disconnect` signal.
+#### DISCONNECT:
+```text
+AcsService RX-i[-343851]:: ACS,travel:1
+[Notice]: Servos: Full Power
+AcsService RX-i[-343851]:: ACS,disconnect
+AcsService TX[360]:: ACS,goodbye:
+AcsService RX-i[-343851]:: ACS,disconnect
+```

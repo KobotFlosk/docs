@@ -103,8 +103,20 @@
           "development-docs/release-notes",
           "development-docs/current-progress",
           "development-docs/acs-protocol",
-          "development-docs/kor-api",
-          "development-docs/charging",
+          {
+            "group": "KOR API",
+            "pages": [
+              "development-docs/kor-api",
+              "development-docs/fetch-segments"
+            ]
+          },
+          {
+            "group": "Charging",
+            "pages": [
+              "development-docs/charging",
+              "development-docs/what-is-efficacy"
+            ]
+          },
           "development-docs/example-scripts"
         ]
       }
