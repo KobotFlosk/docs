@@ -11,7 +11,7 @@
   "navigation": {
     "groups": [
       {
-        "group": "OVERVIEW",
+        "group": "Overview",
         "pages": [
           "index",
           "overview/what-is-kor",
@@ -21,13 +21,13 @@
         ]
       },
       {
-        "group": "GETTING STARTED",
+        "group": "Getting started",
         "pages": [
           "getting-started/ready-to-begin",
           "getting-started/command-reference",
           "getting-started/rlv-ownership-functions",
           {
-            "group": "Menu Structure",
+            "group": "Menu structure",
             "pages": [
               "getting-started/menu-structure",
               "getting-started/menu-structure/subsystems",
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "group": "GENERAL INFORMATION",
+        "group": "General information",
         "pages": [
           "general-information/updating-the-system",
           "general-information/profiles-cold-swapping",
@@ -72,7 +72,7 @@
         ]
       },
       {
-        "group": "SECONDARY SYSTEMS (OPTIONAL)",
+        "group": "Secondary systems (optional)",
         "pages": [
           "secondary-systems-optional/overview",
           "secondary-systems-optional/kor-display-case",
@@ -84,7 +84,7 @@
         ]
       },
       {
-        "group": "KOR CONTROLLERS",
+        "group": "KOR controllers",
         "pages": [
           "kor-controllers/overview",
           "kor-controllers/trailblazer",
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "group": "DEVELOPMENT",
+        "group": "Development",
         "pages": [
           "development-docs/release-notes",
           "development-docs/current-progress",
