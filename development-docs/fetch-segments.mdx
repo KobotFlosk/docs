@@ -1,0 +1,91 @@
+---
+title: "Fetch Segments"
+---
+
+<Warning>
+**Important Note:** The information on this page is subject to change as the API evolves. Please build in flexibility to accommodate potential updates.
+</Warning>
+
+Each segment name or JSON object will be specified in response by key with returned value. Fetch segments as JSON objects can specify **"include"/"exclude"** params to limit the data that can be returned.
+
+### "colors"
+* color: Main system color
+* color-2: Secondary color
+* color-3: Tertiary color
+* color-4: Quaternary color
+
+```json Example
+{
+  "colors": {
+    "color": "<1.00000, 0.00000, 0.00000>",
+    "color-2": "<0.56000, 0.87500, 1.00000>",
+    "color-3": "<1.00000, 0.00000, 0.00000>",
+    "color-4": "<1.00000, 0.00000, 0.00000>"
+  }
+}
+```
+
+### "identify"
+* id: Uniquely assigned controller identifier
+* serial: KOR assigned Unit Serial
+* controller: Controller currently active
+
+```json Example
+{
+  "identify": {
+    "id": "1444f86e-43ef-c7ad-674c-03166ab5198e",
+    "serial": "KOR-50B-00-2705",
+    "controller": "Echo"
+  }
+}
+```
+
+### "devices"
+#### All Devices:
+* uuid: Object Root
+* deviceName: Object Name
+* thermalStat: Thermals applied (managed by HVAC)
+* powerRate: Power utilized by device
+* isNanite: True if device was added via Lightbus
+#### Power Devices
+* charge: Current charge value in Joules
+* chargeCapacity: Maximum charge value in Joules
+* powerType: Plasma/Battery/Tension
+
+```json Example
+{
+  "devices": [
+    {
+      "uuid": "b380fa85-3349-477d-5a60-0c21c33c71f0",
+      "deviceName": "Plasma Power Cell",
+      "thermalStat": {
+        "objectMass": 12,
+        "energyJoules": 20892,
+        "temperature": 0.9076666666666514
+      },
+      "powerRate": 0,
+      "isNanite": true,
+      "charge": 72875234,
+      "chargeCapacity": 85196800,
+      "powerType": "Plasma"
+    }
+  ]
+}
+```
+
+### "subsystems"
+* id: Subsystem identifier
+* label: Subsystem label/name
+* running: True if subsystem is active
+* power: Joules per second
+
+```json Example
+{
+  "subsystems": {
+    "id": "subsys.audio",
+    "label": "Audio",
+    "running": true,
+    "power": 38
+  }
+}
+```
