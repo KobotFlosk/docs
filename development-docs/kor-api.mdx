@@ -81,6 +81,161 @@ Requests must be within a 15m range and utilize JSON messages for structured com
   "fetch": ["colors", "designation"]
 }
 ```
+#### Example Script I
+```json
+integer KORI = -757982; // KOR API
+string JSON = "";
+
+default
+{
+    state_entry()
+    {
+        key kTarget = llGetOwner();
+        list lTarget = llParseString2List((string)kTarget, ["-"], []);
+
+        // prepare request data
+        string jSubsystemParams = llList2Json(JSON_OBJECT, [
+                "include", llList2Json(JSON_ARRAY, ["id", "label"])
+                ]);
+        string jSubsystemSegment = llList2Json(JSON_OBJECT, [
+            "subsystems", jSubsystemParams
+            ]);
+
+        // fetch "colors" and "subsystems"
+        string jFetchSegments = llList2Json(JSON_ARRAY, [
+            "colors", jSubsystemSegment
+            ]);
+
+        string jRequest = llList2Json(JSON_OBJECT, [
+            "id", llList2String(lTarget, -1),
+            "fetch", jFetchSegments
+            ]);
+
+        // jRequest = {"id":"f60daf6b8876","fetch":["colors",{"subsystems":{"include":["id","label"]}}]}
+
+        llListen(KORI + 1, "", NULL_KEY, ""); // default response channel
+        llRegionSayTo(kTarget, KORI, jRequest);
+    }
+
+    listen(integer iChan, string sName, key kUuid, string sJson)
+    {
+        // collect responses returned while 206
+        JSON += llJsonGetValue(sJson, ["data"]);
+        if(206 == (integer)llJsonGetValue(sJson, ["status"])) return;
+
+        // response status should have been 200
+        llOwnerSay(JSON);
+        JSON = "";
+    }
+}
+````
+
+#### Example Output Clean
+````json
+{
+  "colors": {
+    "color": "<1.00000, 0.00000, 0.00000>",
+    "color-2": "<0.56000, 0.87500, 1.00000>",
+    "color-3": "<1.00000, 0.00000, 0.00000>",
+    "color-4": "<1.00000, 0.00000, 0.00000>"
+  },
+  "subsystems": [
+    {
+      "id": "subsys.audio",
+      "label": "Audio"
+    },
+    {
+      "id": "policy.comms",
+      "label": "Comms"
+    },
+    {
+      "id": "subsys.core",
+      "label": "Core"
+    },
+    {
+      "id": "subsys.optics",
+      "label": "Optics"
+    },
+    {
+      "id": "subsys.qtt",
+      "label": "QTT"
+    },
+    {
+      "id": "subsys.servos",
+      "label": "Servos"
+    }
+  ]
+}
+````
+
+#### Example Script II
+````json
+integer KORI = -757982; // KOR API
+string JSON = "";
+
+default
+{
+    state_entry()
+    {
+        key kTarget = llGetOwner();
+        list lTarget = llParseString2List((string)kTarget, ["-"], []);
+
+        // prepare request data
+        string jPowerParams = llList2Json(JSON_OBJECT, [
+                "include", llList2Json(JSON_ARRAY, ["source"])
+                ]);
+        string jPowerSegment = llList2Json(JSON_OBJECT, [
+            "power", jPowerParams
+            ]);
+
+        // fetch "power"
+        string jFetchSegments = llList2Json(JSON_ARRAY, [
+            jPowerSegment
+            ]);
+
+        string jRequest = llList2Json(JSON_OBJECT, [
+            "id", llList2String(lTarget, -1),
+            "fetch", jFetchSegments
+            ]);
+
+        // jRequest = {"id":"f60daf6b8876","fetch":[{"power":{"include":["source"]}}]}
+
+        llListen(KORI + 1, "", NULL_KEY, ""); // default response channel
+        llRegionSayTo(kTarget, KORI, jRequest);
+    }
+
+    listen(integer iChan, string sName, key kUuid, string sJson)
+    {
+        // response returned
+        JSON += llJsonGetValue(sJson, ["data"]);
+        if(206 == (integer)llJsonGetValue(sJson, ["status"])) return;
+
+        llOwnerSay(JSON);
+        JSON = "";
+    }
+}
+````
+
+#### Example Output Clean
+````json
+{
+   "power":{
+      "source":{
+         "charge":9458330,
+         "chargeCapacity":10000000,
+         "powerType":"PLASMA",
+         "capabilities":[
+            "IONIZATION"
+         ],
+         "thermalStat":{
+            "objectMass":12,
+            "energyJoules":26711,
+            "temperature":1.3925833333333342
+         }
+      }
+   }
+}
+````
 
 ### Scripting with KOR
 
