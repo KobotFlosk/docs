@@ -1,0 +1,68 @@
+---
+title: "Charging"
+---
+
+
+This is an example of the ACS protocol in action for charging.
+
+#### **Abbreviations**
+* **RX** is received by Unit from Charger
+* **RX-i** is received by Unit from Charger on interface channel
+* **TX** is transmit to Charger from Unit
+
+#### **CONNECT:**
+**The connect response may have an additional parameter called 'caps' which is short for capabilities.  Ionization controllers (ie. Helix, Echo, Prisma) will have 'ionization' as a value for 'caps'.**
+
+```text
+AcsService RX:: ACS,hello,CHARGER
+AcsService TX[360]:: ACS,welcome,ccu,ver=KOR,remoteok=1,power=EL,caps=ionization
+```
+
+#### INTERFACE:
+```text
+AcsService RX:: ACS,interface,CHARGER
+AcsService TX[360]:: ACS,interface,-343851
+AcsService TX[-343851]:: ACS,powertype:EL
+AcsService TX[-343851]:: ACS,maxcharge:130000.000000
+AcsService TX[-343851]:: ACS,chargeticks:129899.602000
+AcsService RX-i[-343851]:: ACS,chargersummary
+AcsService TX[-343851]:: ACS,chargersummary:1,99,100.3980
+AcsService RX-i[-343851]:: ACS,travel:0
+[Notice]: Servos: Halt
+AcsService TX[-343851]:: ACS,chargeticks:129899.602000
+```
+
+#### CHARGE:
+```text
+AcsService RX-i[-343851]:: ACS,charging:1
+Charging Commenced
+AcsService TX[-343851]:: ACS,chargeticks:129899.602000
+```
+
+**Electric or ionization:**
+```text
+AcsService RX-i[-343851]:: ACS,chargeseconds:100
+-- OR --
+AcsService RX-i[-343851]:: ACS,ionization:1000
+```
+
+#### STOP:
+```text
+AcsService TX[-343851]:: ACS,stopcharge:
+AcsService TX[-343851]:: ACS,chargeticks:129899.602000
+```
+
+#### STOPPED:
+```text
+AcsService RX-i[-343851]:: ACS,charging:0
+Charging Concluded
+```
+
+#### DISCONNECT:
+```text
+AcsService RX-i[-343851]:: ACS,travel:1
+[Notice]: Servos: Full Power
+AcsService RX-i[-343851]:: ACS,disconnect
+AcsService TX[360]:: ACS,goodbye:
+AcsService RX-i[-343851]:: ACS,disconnect
+```

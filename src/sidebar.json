@@ -1,0 +1,212 @@
+[
+  {
+    "label": "Overview",
+    "items": [
+      {
+        "slug": ""
+      },
+      {
+        "slug": "overview/what-is-kor"
+      },
+      {
+        "slug": "overview/our-features"
+      },
+      {
+        "slug": "overview/need-help"
+      },
+      {
+        "slug": "overview/faq"
+      }
+    ]
+  },
+  {
+    "label": "Getting started",
+    "items": [
+      {
+        "slug": "getting-started/ready-to-begin"
+      },
+      {
+        "slug": "getting-started/command-reference"
+      },
+      {
+        "slug": "getting-started/rlv-ownership-functions"
+      },
+      {
+        "label": "Menu structure",
+        "items": [
+          {
+            "slug": "getting-started/menu-structure"
+          },
+          {
+            "slug": "getting-started/menu-structure/subsystems"
+          },
+          {
+            "label": "Core",
+            "items": [
+              {
+                "slug": "getting-started/menu-structure/core"
+              },
+              {
+                "slug": "getting-started/menu-structure/core/filters"
+              },
+              {
+                "slug": "getting-started/menu-structure/core/personas"
+              }
+            ]
+          },
+          {
+            "label": "Manage",
+            "items": [
+              {
+                "slug": "getting-started/menu-structure/manage"
+              },
+              {
+                "slug": "getting-started/menu-structure/manage/colors"
+              },
+              {
+                "slug": "getting-started/menu-structure/manage/users"
+              },
+              {
+                "slug": "getting-started/menu-structure/manage/rlv-relay"
+              },
+              {
+                "slug": "getting-started/menu-structure/manage/designation"
+              }
+            ]
+          },
+          {
+            "slug": "getting-started/menu-structure/devices"
+          },
+          {
+            "slug": "getting-started/menu-structure/report"
+          },
+          {
+            "slug": "getting-started/menu-structure/follow"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "General information",
+    "items": [
+      {
+        "slug": "general-information/updating-the-system"
+      },
+      {
+        "slug": "general-information/profiles-cold-swapping"
+      },
+      {
+        "label": "KOR HUD",
+        "items": [
+          {
+            "slug": "general-information/kor-hud"
+          },
+          {
+            "slug": "general-information/kor-hud/user-interface"
+          }
+        ]
+      },
+      {
+        "slug": "general-information/model-numbers-serials"
+      }
+    ]
+  },
+  {
+    "label": "Secondary systems (optional)",
+    "items": [
+      {
+        "slug": "secondary-systems-optional/overview"
+      },
+      {
+        "slug": "secondary-systems-optional/kor-display-case"
+      },
+      {
+        "slug": "secondary-systems-optional/kor-capacitive-charger"
+      },
+      {
+        "slug": "secondary-systems-optional/kor-overhead"
+      },
+      {
+        "slug": "secondary-systems-optional/hero-combat-system"
+      },
+      {
+        "slug": "secondary-systems-optional/arousal-system"
+      },
+      {
+        "slug": "secondary-systems-optional/auxiliary-power"
+      }
+    ]
+  },
+  {
+    "label": "KOR controllers",
+    "items": [
+      {
+        "slug": "kor-controllers/overview"
+      },
+      {
+        "slug": "kor-controllers/trailblazer"
+      },
+      {
+        "slug": "kor-controllers/helix"
+      },
+      {
+        "slug": "kor-controllers/prisma"
+      },
+      {
+        "slug": "kor-controllers/echo"
+      },
+      {
+        "slug": "kor-controllers/nexus-key"
+      },
+      {
+        "slug": "kor-controllers/byoc"
+      },
+      {
+        "slug": "kor-controllers/cassette-tape-module"
+      },
+      {
+        "slug": "kor-controllers/floppy-disk-module"
+      }
+    ]
+  },
+  {
+    "label": "Development",
+    "items": [
+      {
+        "slug": "development-docs/release-notes"
+      },
+      {
+        "slug": "development-docs/current-progress"
+      },
+      {
+        "slug": "development-docs/acs-protocol"
+      },
+      {
+        "label": "KOR API",
+        "items": [
+          {
+            "slug": "development-docs/kor-api"
+          },
+          {
+            "slug": "development-docs/fetch-segments"
+          }
+        ]
+      },
+      {
+        "label": "Charging",
+        "items": [
+          {
+            "slug": "development-docs/charging"
+          },
+          {
+            "slug": "development-docs/what-is-efficacy"
+          }
+        ]
+      },
+      {
+        "slug": "development-docs/example-scripts"
+      }
+    ]
+  }
+]

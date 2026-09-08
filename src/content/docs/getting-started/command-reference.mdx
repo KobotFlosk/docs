@@ -1,0 +1,363 @@
+---
+title: "Command Reference"
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+
+These commands are subject to change, and more will be added as development continues.
+
+<Aside type="note">
+You must pass `!` or `|` before a command for the system to recognize it. (e.g., `!menu` or `|menu`)
+</Aside>
+
+### System Commands
+
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| **boot** | `!boot` | Turns the system on. |
+| **shutdown** | `!shutdown` | Turns the system off. |
+| **menu** | `!menu` | Opens the Main Menu. |
+| **status** | `!status` | Reports the current system status into local chat. |
+| **update** | `!update` | Performed at designated locations to update system scripts. |
+| **probe** | `!probe` | Probes for NS Devices through the Lightbus. |
+| **restart** | `!restart` | Soft-resets the system. |
+
+### Navigation & Movement
+
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| **warp** | `!warp` | Brings up rolling teleport history. |
+| **warp head** | `!warp head` | Teleports back to the last TP spot on the current sim. |
+| **warp head\^** | `!warp head^` | Teleports to the last sim you were on (Back button). |
+| **warp head~#** | <code>!warp head~#</code> | Teleport to a specific sim index `#` in your history. |
+| **unfollow** | `!unfollow` | Tells the unit to stop following a target. |
+| **qtt (Quantum Tesseract Teleporting)** | <code>!qtt &lt;ON \| OFF&gt;</code> | Enables or Disables Teleporting (Quick Teleport). |
+
+### Communication
+
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| **hive** | <code>!hive &lt;MESSAGE&gt;</code> | Sends a message to every KOR user across the grid. |
+| **shout** | `!s` or `!shout` | Unit shouts in local chat. |
+| **whisper** | `!w` or `!whisper` | Unit whispers in local chat. |
+| **mood** | <code>!mood &lt;TEXT&gt;</code> | Sets a mood (up to 40 chars). Requires overhead tag. |
+| **audio** | <code>!audio &lt;ON \| OFF&gt;</code> | Controls receiving IMs and local chat (RLV). |
+| **releasechat**| `!releasechat` | Stops Chat Redirect (talking through an object). |
+
+### Customization & UI
+
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| **color** | <code>!color &lt;HEX \| RGB \| COLOR&gt;</code> | Changes unit color (HEX, RGB, or Name). |
+| **prsxyz** | `!prsxyz` | Saves the controller's position for centering. |
+| **hide hud** | `!hide hud` | Hides the HUD. |
+| **show hud** | `!show hud` | Shows the HUD. |
+| **reset ui** | `!reset ui` | Centers the UI on the screen. |
+| **boot silent** | `!boot silent` | Enables quiet boot (must be in OFFLINE state). |
+| **boot verbose**| `!boot verbose`| Enables detailed boot (must be in OFFLINE state). |
+
+### Power & Hardware
+
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| **jolt** | `!jolt` | Charges nearby units (5m) for 1% battery power. |
+| **jolt &lt;UUID&gt;** | <code>!jolt &lt;UUID&gt;</code> | Charges a specific unit directly. |
+| **servos** | <code>!servos &lt;FULL \| HALF \| HALT&gt;</code> | Controls servo level (`full`, `half`, `halt`). |
+| **charger release**| `!charger release`| Emergency release from a charger (RLV). |
+
+### Owner/Master Commands
+*Replace `####` with the last four digits of the unit's serial number.*
+
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| **say** | <code>/#### say &lt;TEXT&gt;</code> | Owner speaks through the unit. |
+| **whisp** | <code>/#### whisp &lt;TEXT&gt;</code>| Owner whispers through the unit. |
+| **shout** | <code>/#### shout &lt;TEXT&gt;</code>| Owner shouts through the unit. |
+| **relay** | `/#### relay` | Opens the RLV Relay panel for the owner. |
+| **shutdown** | `/#### shutdown` | Owner remotely shuts down the unit. |
+| **grabchat** | `/#### grabchat` | Turns on Chat Redirect. |
+| **go-rogue** | `!go-rogue` | Allows the unit to regain control from Master. |
+| **relay RED** | <code>!relay &lt;SAFEWORD&gt;</code> | RLV clear restrictions/safeword. |
+
+### Technical / Advanced
+
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| **lightbus** | `!lightbus` | Send command through Private Lightbus. |
+| **lightbus pub**| `!lightbus pub` | Send command through Public Lightbus. |
+| **resize** | <code>!&lt;NAME&gt; resize</code>| Saves the current size of a controller. |
+| **Controller Specific** | <code>!&lt;NAME&gt; &lt;COMMAND&gt;</code> | Controller-specific command (e.g., `!helix vent`). |
+
+These commands are subject to change, and more will be added as development continues.
+
+<Aside type="note">
+Must pass `!` or `|` before a command for the system to recognize them.
+</Aside>
+
+## Commands
+
+`hide hud`, `hive`, `mood`, `boot`, `shutdown`, `menu`, `restart`, `probe`, `update`, `charger release`, `releasechat`, `grabchat`, `lightbus`, `lightbus pub`, `shout`, `whisper`, `status`, `relay RED`, `servos`, `qtt`, `audio`, `unfollow`, `prsxyz`, `color`, `say`, `whisp`, `warp`, `jolt`, `boot silent`, `boot verbose`, `show hud`, `reset ui`, `devices`, `subsys`, `users`, `hud menu`, `profile`, `mind`, `warp head`, `warp head^`, `warp head~#`, `go-rogue`
+
+---
+
+### boot
+**Usage**: `!boot`
+**Description**: Turns the system on.
+
+---
+
+### shutdown
+**Usage**: `!shutdown`
+**Description**: Turns the system off.
+
+---
+
+### menu
+**Usage**: `!menu`
+**Description**: Opens up the Main Menu.
+
+You can also access subset menus using commands like `!menu subsys` or `!menu devices`
+Also, you can use your serial number, *e.g., `/#### menu`*
+
+**Subset commands include**:
+* **subsys**: Opens the Subsystems menu.
+* **devices**: Opens the Devices menu.
+* **users**: Opens the Users menu.
+* **profile**: Opens the Profile menu.
+* **mind**: Opens the Mind menu.
+
+---
+
+### probe
+**Usage**: `!probe`
+**Description**: Probes for NS Devices through the Lightbus.
+
+---
+
+### update
+**Usage**: `!update`
+**Description**: Must be used at designated locations to perform script updates of the system.
+Current location is the [KOR main store](http://maps.secondlife.com/secondlife/Sailzane/31/74/2565).
+
+---
+
+### charger release
+**Usage**: `!charger release`
+**Description**: To be run when stuck on a charger. This releases RLV restrictions.
+
+---
+
+### releasechat
+**Usage**: `!releasechat`
+**Description**: To be used when wanting to stop talking through an object, also known as Chat Redirect.
+
+---
+
+### grabchat
+**Usage**: `/#### grabchat`
+**Description**: Used to talk through an object, effectively turning on Chat Redirect (*#### last four of your serial number*).
+
+---
+
+### lightbus
+**Usage**: `!lightbus`
+**Description**: Allows you to send a command through the Private Lightbus channel, refer to NS documentation.
+
+---
+
+### lightbus pub
+**Usage**: `!lightbus pub`
+**Description**: Allows you to send a command through the Public Lightbus channel, refer to NS documentation.
+
+---
+
+### shout
+**Usage**: `!s` OR `!shout`
+**Description**: Allows the unit to SHOUT.
+
+---
+
+### whisper
+**Usage**: `!w` OR `!whisper`
+**Description**: Allows the unit to whisper.
+
+---
+
+### audio
+**Usage**: <code>!audio &lt;ON | OFF&gt;</code>
+**Description**: Turns audio on & off. This controls the RLV function of being able to receive IMs and local chat.
+
+---
+
+### status
+**Usage**: `!status`
+**Description**: Reports the current system status into local chat.
+
+---
+
+### relay RED
+**Usage**: <code>!relay &lt;SAFEWORD&gt;</code>
+**Description**: RLV clear restrictions/stop. (RED, i.e., your SAFEWORD, can be changed in the RLV settings in the controller.)
+
+---
+
+### servos
+**Usage**: <code>!servos &lt;FULL | HALF | HALT&gt;</code>
+**Description**: Controls the level of the servos.
+
+---
+
+### qtt
+**Usage**: <code>!qtt &lt;ON | OFF&gt;</code>
+**Description**: Enables & Disables Teleporting.
+
+---
+
+### unfollow
+**Usage**: `!unfollow`
+**Description**: Tells the unit to stop following a target.
+
+---
+
+### prsxyz
+**Usage**: `!prsxyz`
+**Description**: Saves the controller's position, allowing the battery to automatically center itself based on the controller's location.
+
+---
+
+### color
+**Usage**: <code>!color &lt;HEX | RGB | COLOR&gt;</code>
+**Description**: Changes the unit's color. You can use any of the formats: HEX, RGB, or named color. Can also use all four NS Lightbus channels, e.g., `!color a red`.
+
+---
+
+### say
+**Usage**: <code>/#### say &lt;TEXT&gt;</code>
+**Description**: Allows an owner to speak through their unit (*#### last four of serial number*).
+
+---
+
+### whisp
+**Usage**: <code>/#### whisp &lt;TEXT&gt;</code>
+**Description**: Allows an owner to whisper through their unit (*#### last four of serial number*).
+
+---
+
+### shout (Owner)
+**Usage**: <code>/#### shout &lt;TEXT&gt;</code>
+**Description**: Allows an owner to shout through their unit (*#### last four of serial number*).
+
+---
+
+### relay
+**Usage**: `/#### relay`
+**Description**: Allows an Owner/Master to open up the RLV Relay panel (*#### last four of serial number*).
+
+---
+
+### shutdown (Owner)
+**Usage**: `/#### shutdown`
+**Description**: Allows an owner to shutdown their unit (*#### last four of serial number*).
+
+---
+
+### warp
+**Usage**: `!warp`
+**Description**: Brings up rolling teleport history.
+
+---
+
+### warp head
+**Usage**: `!warp head`
+**Description**: Brings you back to the last TP spot on the sim you're on currently.
+
+---
+
+### warp head\^
+**Usage**: `!warp head^`
+**Description**: Teleports you to the last sim you were on, think of it as a back button.
+
+---
+
+### warp head~#
+**Usage**: <code>!warp head~#</code>
+**Description**: indicating the number in the warp list so you can teleport to any sim in your history.
+
+---
+
+### jolt
+**Usage**: `!jolt`
+**Description**: Charges units within a 5m radius for 1% battery power.
+
+---
+
+### jolt &lt;UUID&gt;
+**Usage**: <code>!jolt &lt;UUID&gt; &lt;CHARGE VALUE&gt;</code>
+**Description**: Charges a unit directly for no more than 1% of battery power. <code>&lt;CHARGE VALUE&gt;</code> is an optional value that can be used.
+
+---
+
+### boot silent
+**Usage**: `!boot silent`
+**Description**: MUST be used in offline state. Allows quiet boot.
+
+---
+
+### boot verbose
+**Usage**: `!boot verbose`
+**Description**: MUST be used in offline state. Allows boot to be detailed.
+
+---
+
+### hide hud
+**Usage**: `!hide hud`
+**Description**: Hides the HUD.
+
+---
+
+### show hud
+**Usage**: `!show hud`
+**Description**: Shows the HUD.
+
+---
+
+### hud menu
+**Usage**: `!hud menu`
+**Description**: Shows the HUD resize menu.
+
+---
+
+### hive
+**Usage**: <code>!hive &lt;MESSAGE&gt;</code>
+**Description**: Sends a message to every user wearing the controller across the grid.
+
+---
+
+### reset ui
+**Usage**: `!reset ui`
+**Description**: Centers the UI on the user's screen.
+
+---
+
+### mood
+**Usage**: <code>!mood &lt;TEXT&gt;</code>
+**Description**: Allows the unit to set a mood, up to 40 characters. You must add the tag to your overhead titler.
+
+---
+
+### &lt;NAME&gt; resize
+**Usage**: <code>!&lt;NAME&gt; resize</code>
+**Description**: Allows the user to save the current size of a controller.
+
+---
+
+### &lt;NAME&gt; &lt;COMMAND&gt;
+**Usage**: <code>!&lt;NAME&gt; &lt;COMMAND&gt;</code>
+**Description**: Allows the user to run a controller specific command. (i.e `!helix vent`)
+
+---
+
+### go-rogue
+**Usage**: `!go-rogue` or `/#### go-rogue`
+**Description**: Allows the unit to regain control from their Master (*#### last four of serial number*).
